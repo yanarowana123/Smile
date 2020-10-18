@@ -6,6 +6,19 @@
     <section class="our-works">
         <div class="container">
             <div class="our-works__inner">
+                <div class="main__inner__dropdown">
+                    <ul>
+                        <li>
+                            <a href="/ru/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/rus.png')}}" alt=""/> RU</a>
+                        </li>
+                        <li>
+                            <a href="/en/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/eng.png')}}" alt=""/> EN</a>
+                        </li>
+                        <li>
+                            <a href="/kk/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/kaz.png')}}" alt=""/> KZ</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="row">
                     <div class="our-works__wrap col-md-6">
                         <div class="our-works__title">{{$header->title}}</div>

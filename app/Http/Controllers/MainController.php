@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Feature;
 use App\Models\Main;
 use App\Models\Photo;
+use App\Models\Staff;
 
 class MainController extends Controller
 {
@@ -46,7 +47,8 @@ class MainController extends Controller
     {
         $header = Main::where('page', Main::STAFF)->where('block', Main::HEADER)->first();
         $feature = Main::where('page', Main::ABOUT)->where('block', Main::FEATURE)->first();
-        return view('pages.staff', compact('header', 'feature'));
+        $staff = Staff::all();
+        return view('pages.staff', compact('header', 'feature', 'staff'));
     }
 
     public function works()

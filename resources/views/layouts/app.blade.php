@@ -1,4 +1,3 @@
-
 @php
     $contacts = \App\Models\Contact::all();
     $whatsapp = $contacts->where('type',\App\Models\Contact::WPP)->first()->content;
@@ -9,7 +8,7 @@
     $schedule =  $contacts->where('type',\App\Models\Contact::SCHEDULE)->all();
 
 @endphp
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8"/>
@@ -33,17 +32,18 @@
 <section class="active__header">
     <div class="active__menu active__menu-left">
         <a class="active__logo" href="index.html"
-        ><img src="{{asset('img/logo.svg')}}" alt="logo"
+        ><img src="img/logo.svg" alt="logo"
             /></a>
         <div class="container">
             <div class="active__link">
-                <a href="index.html" class="close_navbar scroll-btn2">Главная</a>
-                <a href="gallery.html" class="close_navbar scroll-btn2">О нас</a>
-                <a href="services.html" class="close_navbar scroll-btn2">Услуги</a>
-                <a href="team.html" class="close_navbar scroll-btn2">Команда</a>
-                <a href="our-works.html" class="close_navbar scroll-btn2"
-                >Наши работы</a>
-                <a href="contacts.html" class="close_navbar scroll-btn2"
+                <a href="{{route('index')}}" class="close_navbar scroll-btn2">Главная</a>
+                <a href="{{route('about')}}" class="close_navbar scroll-btn2">О нас</a>
+                <a href="{{route('services')}}" class="close_navbar scroll-btn2">Услуги</a>
+                <a href="{{route('staff')}}" class="close_navbar scroll-btn2">Команда</a>
+                <a href="{{route('works')}}" class="close_navbar scroll-btn2"
+                >Наши работы</a
+                >
+                <a href="{{route('contacts')}}" class="close_navbar scroll-btn2"
                 >Контакты</a
                 >
             </div>
@@ -51,6 +51,54 @@
     </div>
 </section>
 
+<section class="popup">
+    <div class="container">
+        <div class="popup__inner offset-md-1 col-md-10">
+            <div class="popup__title">
+                Пройдите онлайн консультацию и получите скидку!
+                <span aria-hidden="true" class="popup_icon">&times;</span>
+            </div>
+            <div class="popup__subtitle col-md-10">
+                Онлайн консультация – выдает вам необходимые рекомендации, но не
+                сможет поставить точный диагноз, так как для этого требуется
+                инструментальный осмотр и рентген зуба.
+            </div>
+            <form action="" class="popup__form row"
+                  x-data="contactForm()"
+            >
+                <div class="col-md-6">
+                    <input type="text" name="name" class="popup__input"
+                           x-model="formData.name"
+                           placeholder="Имя"/>
+                    <input
+                        type="text"
+                        name="phone"
+                        x-model="formData.phone"
+                        class="popup__input"
+                        placeholder="Номер телефона"
+                    />
+                    <input type="text" class="popup__input"
+                           name="email"
+                           x-model="formData.email"
+
+                           placeholder="E-mail"/>
+                </div>
+                <div class="col-md-6">
+              <textarea
+                  class="popup__textarea"
+                  name="message"
+                  x-model="formData.message"
+
+                  placeholder="Что вас беспокоит?"
+              ></textarea>
+                </div>
+            </form>
+            <div class="popup__button">
+                <button class="button">Записаться</button>
+            </div>
+        </div>
+    </div>
+</section>
 
 @yield('content')
 
@@ -74,14 +122,14 @@
             <div class="offset-md-1 col-md-2 col-6">
                 <p class="footer__title">навигация</p>
                 <div class="a1 footer__column">
-                    <a href="index.html" class="footer__link scroll-btn">Главная</a>
-                    <a href="gallery.html" class="footer__link scroll-btn">О нас</a>
-                    <a href="services.html" class="footer__link scroll-btn">Услуги</a>
-                    <a href="team.html" class="footer__link scroll-btn">Команда</a>
-                    <a href="our-works.html" class="footer__link scroll-btn"
+                    <a href="{{route('index')}}" class="footer__link scroll-btn">Главная</a>
+                    <a href="{{route('about')}}" class="footer__link scroll-btn">О нас</a>
+                    <a href="{{route('services')}}" class="footer__link scroll-btn">Услуги</a>
+                    <a href="{{route('staff')}}" class="footer__link scroll-btn">Команда</a>
+                    <a href="{{route('works')}}" class="footer__link scroll-btn"
                     >Наши работы</a
                     >
-                    <a href="contacts.html" class="footer__link scroll-btn"
+                    <a href="{{route('contacts')}}" class="footer__link scroll-btn"
                     >Контакты</a
                     >
                 </div>
@@ -95,7 +143,7 @@
                         >
                     @endforeach
                     @foreach($addresses as $address)
-                        <a  onclick="return false" href="#" class="footer__link"
+                        <a onclick="return false" href="#" class="footer__link"
                         >{{$address->content}}</a
                         >
                     @endforeach
@@ -112,5 +160,36 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{{asset('js/libs.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer></script>
+
+<script>
+    function contactForm() {
+        return {
+            formData: {
+                name: '',
+                email: '',
+                phone: '',
+                message: ''
+            },
+            message: '',
+
+            submitData() {
+                this.message = ''
+                fetch('/contact', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(this.formData)
+                })
+                    .then(() => {
+                        this.message = 'Form sucessfully submitted!'
+                    })
+                    .catch(() => {
+                        this.message = 'Ooops! Something went wrong!'
+                    })
+            }
+        }
+    }
+</script>
 </body>
 </html>

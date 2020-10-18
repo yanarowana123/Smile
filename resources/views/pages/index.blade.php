@@ -9,35 +9,48 @@
                         /></a>
                     <div class="header__navbar">
                         <a
-                            class="header__link header__link_active scroll-btn"
-                            href="index.html"
+                            class="header__link header__link_current_active scroll-btn"
+                            href="{{route('index')}}"
                         >Главная</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
-                            href="gallery.html"
+                            href="{{route('about')}}"
                         >О нас</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
-                            href="services.html"
+                            href="{{route('services')}}"
                         >Услуги</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
-                            href="team.html"
+                            href="{{route('staff')}}"
                         >Команда</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
-                            href="our-works.html"
+                            href="{{route('works')}}"
                         >Наши работы</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
-                            href="contacts.html"
+                            href="{{route('contacts')}}"
                         >Контакты</a
                         >
+                        <div class="header__navbar__lang">
+                            <div class="header__navbar__lang__content">
+                                            <span>@if(app()->getLocale()=='en')
+                                                    Eng
+                                                @elseif(app()->getLocale()=='kk')
+                                                    Қаз
+                                                @else
+                                                    Рус
+                                                @endif
+                            </span>
+                                <i class="arrow_down"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="hamburger">
                         <span></span>
@@ -48,13 +61,29 @@
 
         <div class="container">
             <div class="main__inner">
+                <div class="main__inner__dropdown">
+                    <ul>
+                        <li>
+                            <a href="/ru/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/rus.png')}}"
+                                                                                       alt=""/> RU</a>
+                        </li>
+                        <li>
+                            <a href="/en/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/eng.png')}}"
+                                                                                       alt=""/> EN</a>
+                        </li>
+                        <li>
+                            <a href="/kk/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/kaz.png')}}"
+                                                                                       alt=""/> KZ</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="row">
                     <div class="main__descr col-md-6">
                         <div class="main__title col-lg-10">
-                            {{$header->title}}
+                            Smile - чтобы вы улыбались
                         </div>
                         <div class="main__subtitle">
-                            {!! $header->content !!}
+                            Запишитесь на онлайн консультацию сейчас и получите скидку
                         </div>
                         <button class="button">Онлайн консультация</button>
                     </div>
@@ -65,6 +94,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="about-us" data-aos="fade-up" data-aos-duration="500">
         <div class="container">

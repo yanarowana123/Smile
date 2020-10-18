@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,6 +85,7 @@ return [
     'locales' => [
         'en' => 'English',
         'ru' => 'Russian',
+        'kk' => 'Kazakh',
     ],
     'pagination' => env('APP_PAGINATION', 10),
 

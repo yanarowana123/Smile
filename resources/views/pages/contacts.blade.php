@@ -13,6 +13,19 @@
     <div class="contacts">
         <div class="container">
             <div class="contacts__inner row">
+                <div class="main__inner__dropdown">
+                    <ul>
+                        <li>
+                            <a href="/ru/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/rus.png')}}" alt=""/> RU</a>
+                        </li>
+                        <li>
+                            <a href="/en/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/eng.png')}}" alt=""/> EN</a>
+                        </li>
+                        <li>
+                            <a href="/kk/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/kaz.png')}}" alt=""/> KZ</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="contacts__descr col-md-5">
                     <div class="contacts__title col-md-10">{{$header->title}}</div>
                     <div class="contacts__subtitle">

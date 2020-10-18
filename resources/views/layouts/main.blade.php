@@ -37,14 +37,14 @@
             /></a>
         <div class="container">
             <div class="active__link">
-                <a href="index.html" class="close_navbar scroll-btn2">Главная</a>
-                <a href="gallery.html" class="close_navbar scroll-btn2">О нас</a>
-                <a href="services.html" class="close_navbar scroll-btn2">Услуги</a>
-                <a href="team.html" class="close_navbar scroll-btn2">Команда</a>
-                <a href="our-works.html" class="close_navbar scroll-btn2"
+                <a href="{{route('index')}}" class="close_navbar scroll-btn2">Главная</a>
+                <a href="{{route('about')}}" class="close_navbar scroll-btn2">О нас</a>
+                <a href="{{route('services')}}" class="close_navbar scroll-btn2">Услуги</a>
+                <a href="{{route('staff')}}" class="close_navbar scroll-btn2">Команда</a>
+                <a href="{{route('works')}}" class="close_navbar scroll-btn2"
                 >Наши работы</a
                 >
-                <a href="contacts.html" class="close_navbar scroll-btn2"
+                <a href="{{route('contacts')}}" class="close_navbar scroll-btn2"
                 >Контакты</a
                 >
             </div>
@@ -62,34 +62,61 @@
                 <div class="header__navbar">
                     <a
                         class="header__link header__link_active scroll-btn"
-                        href="index.html"
+                        href="{{route('index')}}"
                     >Главная</a
                     >
                     <a
-                        class="header__link header__link_active scroll-btn"
-                        href="gallery.html"
+                        class="header__link
+                        {{request()->route()->named('about')?'header__link_current_active':''}}
+                            scroll-btn"
+                        href="{{route('about')}}"
                     >О нас</a
                     >
                     <a
-                        class="header__link header__link_active scroll-btn"
-                        href="services.html"
+                        class="header__link header__link_active
+                                                {{request()->route()->named('services')?'header__link_current_active':''}}
+
+                            scroll-btn"
+                        href="{{route('services')}}"
                     >Услуги</a
                     >
                     <a
-                        class="header__link header__link_active scroll-btn"
-                        href="team.html"
+                        class="header__link header__link_active
+                                                {{request()->route()->named('staff')?'header__link_current_active':''}}
+
+                            scroll-btn"
+                        href="{{route('staff')}}"
                     >Команда</a
                     >
                     <a
-                        class="header__link header__link_active scroll-btn"
-                        href="our-works.html"
+                        class="header__link header__link_active
+                                                {{request()->route()->named('works')?'header__link_current_active':''}}
+
+                            scroll-btn"
+                        href="{{route('works')}}"
                     >Наши работы</a
                     >
                     <a
-                        class="header__link header__link_active scroll-btn"
-                        href="contacts.html"
+                        class="header__link header__link_active
+                                                {{request()->route()->named('contacts')?'header__link_current_active':''}}
+
+                            scroll-btn"
+                        href="{{route('contacts')}}"
                     >Контакты</a
                     >
+                    <div class="header__navbar__lang">
+                        <div class="header__navbar__lang__content">
+                            <span>@if(app()->getLocale()=='en')
+                                    Eng
+                                @elseif(app()->getLocale()=='kk')
+                                    Қаз
+                                @else
+                                    Рус
+                                @endif
+                            </span>
+                            <i class="arrow_down"></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="hamburger">
                     <span></span>
@@ -122,18 +149,17 @@
             <div class="offset-md-1 col-md-2 col-6">
                 <p class="footer__title">навигация</p>
                 <div class="a1 footer__column">
-                    <a href="index.html" class="footer__link scroll-btn">Главная</a>
-                    <a href="gallery.html" class="footer__link scroll-btn">О нас</a>
-                    <a href="services.html" class="footer__link scroll-btn">Услуги</a>
-                    <a href="team.html" class="footer__link scroll-btn">Команда</a>
-                    <a href="our-works.html" class="footer__link scroll-btn"
+                    <a href="{{route('index')}}" class="footer__link scroll-btn">Главная</a>
+                    <a href="{{route('about')}}" class="footer__link scroll-btn">О нас</a>
+                    <a href="{{route('services')}}" class="footer__link scroll-btn">Услуги</a>
+                    <a href="{{route('staff')}}" class="footer__link scroll-btn">Команда</a>
+                    <a href="{{route('works')}}" class="footer__link scroll-btn"
                     >Наши работы</a
                     >
-                    <a href="contacts.html" class="footer__link scroll-btn"
+                    <a href="{{route('contacts')}}" class="footer__link scroll-btn"
                     >Контакты</a
                     >
-                </div>
-            </div>
+                </div>            </div>
             <div class="offset-md-1 col-md-4 col-6">
                 <div class="footer__column">
                     <p class="footer__title">контакты</p>
@@ -143,7 +169,7 @@
                         >
                     @endforeach
                     @foreach($addresses as $address)
-                        <a  onclick="return false" href="#" class="footer__link"
+                        <a onclick="return false" href="#" class="footer__link"
                         >{{$address->content}}</a
                         >
                     @endforeach

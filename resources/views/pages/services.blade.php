@@ -7,6 +7,19 @@
     <section class="services">
         <div class="container">
             <div class="services__inner">
+                <div class="main__inner__dropdown">
+                    <ul>
+                        <li>
+                            <a href="/ru/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/rus.png')}}" alt=""/> RU</a>
+                        </li>
+                        <li>
+                            <a href="/en/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/eng.png')}}" alt=""/> EN</a>
+                        </li>
+                        <li>
+                            <a href="/kk/{{substr(Request::getRequestUri(), 4)}}"><img src="{{asset('img/kaz.png')}}" alt=""/> KZ</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="services__title col-md-10 col-lg-8">
                     {{$header->title}}
                 </div>
