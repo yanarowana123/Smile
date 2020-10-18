@@ -36,6 +36,25 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="label" for="name_kz">
+                        Есімі
+                    </label>
+
+                    <div class="control">
+                        <input type="text"
+                               class="form-control @error('name_kz') is-invalid @enderror"
+                               name="name_kz"
+                               id="name_kz"
+                               value="{{old('name_kz')}}"
+                               required>
+                    </div>
+
+                    @error('name_kz')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label class="label" for="fullname_en">
                         Name
                     </label>
@@ -68,6 +87,23 @@
                     </div>
 
                     @error('content_ru')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="content_kz">
+                        Сипаттама
+                    </label>
+
+                    <div class="control">
+                <textarea required class="form-control  @error('content_kz') is-invalid @enderror"
+                          name="content_kz"
+                          id="content_kz"
+                >{{old('content_kz')}}</textarea>
+                    </div>
+
+                    @error('content_kz')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

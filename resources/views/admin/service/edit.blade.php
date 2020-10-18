@@ -28,6 +28,15 @@
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                        <label for="title_kz">Тақырып</label>
+                        <input name="title_kz" type="text" class="form-control" id="title_kz"
+                               value="{{$feature->title_kz}}">
+                        @error('title_kz')
+                        <div class="text-red">{{$message}}</div>
+                        @enderror
+                    </div>
+
 
                     <div class="form-group">
                         <label for="title_en">Title</label>
@@ -46,6 +55,16 @@
                         <div class="text-red">{{$message}}</div>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="content_kz">Мазмұны</label>
+                        <textarea name="content_kz" id="content_kz"
+                                  class="form-control">{{$feature->content_kz}}</textarea>
+                        @error('content_kz')
+                        <div class="text-red">{{$message}}</div>
+                        @enderror
+                    </div>
+
                     <div class="form-group">
                         <label for="content_en">Content</label>
                         <textarea name="content_en" id="content_en"
@@ -106,5 +125,6 @@
         };
         CKEDITOR.replace('content_en',config);
         CKEDITOR.replace('content_ru', config);
+        CKEDITOR.replace('content_kz', config);
     </script>
 @endpush

@@ -46,7 +46,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            if (in_array($locale, ['admin', 'storage'])) {
+            if (in_array($locale, ['login', 'admin', 'storage'])) {
                 Route::middleware('web')
                     ->namespace($this->namespace)
                     ->group(base_path('routes/web.php'));

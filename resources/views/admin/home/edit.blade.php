@@ -26,6 +26,17 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="title_kz">
+                            Тақырып
+                        </label>
+                        <input name="title_kz" type="text" class="form-control" id="title_kz"
+                               value="{{$content->title_kz}}">
+                        @error('title_kz')
+                        <div class="text-red">{{$message}}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="title_en">Title</label>
                         <input name="title_en" type="text" class="form-control" id="title_en"
                                value="{{$content->title_en}}">
@@ -40,6 +51,15 @@
                         <textarea name="content_ru" id="content_ru"
                                   class="form-control">{{$content->content_ru}}</textarea>
                         @error('content_ru')
+                        <div class="text-red">{{$message}}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content_kz">Мазмұны</label>
+                        <textarea name="content_kz" id="content_kz"
+                                  class="form-control">{{$content->content_kz}}</textarea>
+                        @error('content_kz')
                         <div class="text-red">{{$message}}</div>
                         @enderror
                     </div>
@@ -98,6 +118,6 @@
         });
         CKEDITOR.replace('content_en', {filebrowserImageBrowseUrl: '/elfinder/ckeditor'});
         CKEDITOR.replace('content_ru', {filebrowserImageBrowseUrl: '/elfinder/ckeditor'});
-        // CKEDITOR.replace('content_kz', {filebrowserImageBrowseUrl: '/elfinder/ckeditor'});
+        CKEDITOR.replace('content_kz', {filebrowserImageBrowseUrl: '/elfinder/ckeditor'});
     </script>
 @endpush

@@ -26,6 +26,15 @@
                         @enderror
                     </div>
 
+                        <div class="form-group">
+                            <label for="content_kz">Мазмұны</label>
+                            <textarea name="content_kz" id="content_kz"
+                                      class="form-control">{{old('content_kz')}}</textarea>
+                            @error('content_kz')
+                            <div class="text-red">{{$message}}</div>
+                            @enderror
+                        </div>
+
                     <div class="form-group">
                         <label for="content_en">Content</label>
                         <textarea name="content_en" id="content_en"

@@ -18,7 +18,11 @@ trait Multilingual
     private function getLocale()
     {
         $locale = app()->getLocale();
+        if ($locale == 'kk')
+            $locale = 'kz';
 
+        if($locale == 'admin')
+            $locale = config('app.fallback_locale');
         return $locale;
     }
 

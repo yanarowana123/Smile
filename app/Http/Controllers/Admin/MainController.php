@@ -30,8 +30,10 @@ class MainController extends Controller
             [
                 'title_ru' => 'nullable|string|max:255',
                 'title_en' => 'nullable|string|max:255',
+                'title_kz' => 'nullable|string|max:255',
                 'content_ru' => 'nullable|string',
                 'content_en' => 'nullable|string',
+                'content_kz' => 'nullable|string',
                 'image' => 'nullable|image|max:4096',
             ]
         );

@@ -31,9 +31,11 @@ class FeatureController extends Controller
 
     public function storeWork(Request $request)
     {
+
         $validatedData = $request->validate([
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
         ]);
         $validatedData['block'] = Feature::WORK;
 
@@ -55,6 +57,7 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
         ]);
 
         $feature->update($validatedData);
@@ -90,8 +93,10 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'title_en' => 'required|string|max:255',
             'title_ru' => 'required|string|max:255',
+            'title_kz' => 'required|string|max:255',
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
             'image' => 'required|image|max:4096',
         ]);
         $validatedData['block'] = Feature::SERVICE;
@@ -120,8 +125,10 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'title_en' => 'required|string|max:255',
             'title_ru' => 'required|string|max:255',
+            'title_kz' => 'required|string|max:255',
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
             'image' => 'nullable|image|max:4096',
         ]);
 
@@ -166,6 +173,7 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
         ]);
         $validatedData['block'] = Feature::TECH;
 
@@ -187,6 +195,7 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
         ]);
 
         $feature->update($validatedData);
@@ -224,6 +233,7 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
         ]);
         $validatedData['block'] = Feature::HOME;
 
@@ -245,6 +255,7 @@ class FeatureController extends Controller
         $validatedData = $request->validate([
             'content_en' => 'required|string',
             'content_ru' => 'required|string',
+            'content_kz' => 'required|string',
         ]);
 
         $feature->update($validatedData);

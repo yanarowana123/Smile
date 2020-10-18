@@ -26,6 +26,11 @@ Route::middleware('auth')
     ->namespace('Admin')
     ->group(function () {
 
+        Route::get('/', function () {
+            return redirect()->route('admin.staff.index');
+        })->name('index');
+
+
         Route::prefix('/gallery')->name('gallery.')->group(function () {
             Route::get('/', 'GalleryController@index')->name('index');
             Route::get('/{gallery}/edit', 'GalleryController@edit')->name('edit');
@@ -34,13 +39,10 @@ Route::middleware('auth')
         });
 
 
-
-
         Route::prefix('/content')->name('content.')->group(function () {
             Route::get('/{page}/{block}', 'MainController@index')->name('index');
             Route::put('/{content}/update/', 'MainController@updateHeader')->name('update');
         });
-
 
 
         Route::prefix('/staff')->name('staff.')->group(function () {
@@ -99,7 +101,6 @@ Route::middleware('auth')
                 Route::get('/{feature}/edit', 'FeatureController@editService')->name('edit');
                 Route::put('/{feature}/update', 'FeatureController@updateService')->name('update');
             });
-
 
 
         });

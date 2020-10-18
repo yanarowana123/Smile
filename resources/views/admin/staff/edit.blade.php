@@ -19,7 +19,7 @@
                 @endif
                 <div class="form-group">
                     <label class="label" for="name_ru">
-                      Имя
+                        Имя
                     </label>
 
                     <div class="control">
@@ -37,6 +37,25 @@
                     @enderror
                 </div>
 
+                <div class="form-group">
+                    <label class="label" for="name_kz">
+                        Есімі
+                    </label>
+
+                    <div class="control">
+                        <input type="text"
+                               class="form-control @error('name_kz') is-invalid @enderror"
+                               name="name_kz"
+                               id="name_kz"
+                               value="{{$staff->name_kz}}"
+                               required>
+
+                    </div>
+
+                    @error('name_kz')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="form-group">
                     <label class="label" for="name_en">
@@ -58,21 +77,38 @@
                     @enderror
                 </div>
 
-                    <div class="form-group">
-                        <label class="label" for="content_ru">
-Описание
-                        </label>
+                <div class="form-group">
+                    <label class="label" for="content_ru">
+                        Описание
+                    </label>
 
-                        <div class="control">
+                    <div class="control">
                       <textarea required class="form-control  @error('content_ru') is-invalid @enderror"
                                 name="content_ru"
                                 id="content_ru">{{$staff->content_ru}}</textarea>
+                    </div>
+
+                    @error('content_ru')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                    <div class="form-group">
+                        <label class="label" for="content_kz">
+                            Сипаттама
+                        </label>
+
+                        <div class="control">
+                      <textarea required class="form-control  @error('content_kz') is-invalid @enderror"
+                                name="content_kz"
+                                id="content_kz">{{$staff->content_kz}}</textarea>
                         </div>
 
-                        @error('content_ru')
+                        @error('content_kz')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                 <div class="form-group">
                     <label class="label" for="content_en">
                         Description
@@ -88,9 +124,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-
-
-
 
 
                 <div class="form-group">
@@ -115,7 +148,7 @@
                 <div class="form-group">
                     <div class="control">
                         <button class="btn btn-success" type="submit">
-                        Сохранить
+                            Сохранить
                         </button>
                     </div>
                 </div>

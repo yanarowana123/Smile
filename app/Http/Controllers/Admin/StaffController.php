@@ -52,9 +52,11 @@ class StaffController extends Controller
             [
                 'name_ru' => 'required|max:255',
                 'name_en' => 'required|max:255',
+                'name_kz' => 'required|max:255',
                 'image' => 'required|image|mimes:jpg,jpeg,png|max:4096',
                 'content_ru' => 'required|string|max:255',
                 'content_en' => 'required|string|max:255',
+                'content_kz' => 'required|string|max:255',
             ]
         );
         $attributes = collect($request);
@@ -105,9 +107,11 @@ class StaffController extends Controller
             [
                 'name_ru' => 'required|max:255',
                 'name_en' => 'required|max:255',
+                'name_kz' => 'required|max:255',
                 'image' => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
                 'content_ru' => 'required|string|max:255',
                 'content_en' => 'required|string|max:255',
+                'content_kz' => 'required|string|max:255',
             ]
         );
         $attributes = collect($request);
