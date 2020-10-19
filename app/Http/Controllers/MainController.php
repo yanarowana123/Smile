@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Feature;
+use App\Models\Feedback;
 use App\Models\Main;
 use App\Models\Photo;
 use App\Models\Staff;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -65,4 +67,25 @@ class MainController extends Controller
         return view('pages.contacts', compact('header'));
     }
 
+    public function feedback(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'message' => 'required|string|max:700',
+        ]);
+
+        if ($validator->passes()) {
+            $application = new Feedback();
+            $application->name = $request->name;
+            $application->phone = $request->phone;
+            $application->email = $request->email;
+            $application->message = $request->message;
+            $application->save();
+            return response()->json(['success' => __('main.form_success', ['name' => $request->name])]);
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
+
+    }
 }

@@ -19,6 +19,7 @@ Route::get('/services', 'MainController@services')->name('services');
 Route::get('/staff', 'MainController@staff')->name('staff');
 Route::get('/our-works', 'MainController@works')->name('works');
 Route::get('/contacts', 'MainController@contacts')->name('contacts');
+Route::get('/feedback', 'MainController@feedback')->name('feedback');
 
 Route::middleware('auth')
     ->prefix('admin/')

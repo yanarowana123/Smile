@@ -63,7 +63,8 @@
                 сможет поставить точный диагноз, так как для этого требуется
                 инструментальный осмотр и рентген зуба.
             </div>
-            <form action="" class="popup__form row"
+            <form action="/feedback" class="popup__form row"
+                  @submit.prevent="submitData"
                   x-data="contactForm()"
             >
                 <div class="col-md-6">
@@ -92,10 +93,14 @@
                   placeholder="Что вас беспокоит?"
               ></textarea>
                 </div>
+                <div class="popup__button">
+                    <button class="button"
+                            type="submit"
+                            :disabled="loading"
+                    >Записаться</button>
+                </div>
             </form>
-            <div class="popup__button">
-                <button class="button">Записаться</button>
-            </div>
+
         </div>
     </div>
 </section>
@@ -170,22 +175,30 @@
                 name: '',
                 email: '',
                 phone: '',
-                message: ''
+                message: '',
+                _token: "{{ csrf_token() }}"
             },
             message: '',
+            loading:'',
 
             submitData() {
-                this.message = ''
-                fetch('/contact', {
+                this.loading = true;
+                this.message = '';
+                fetch('/feedback', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(this.formData)
                 })
-                    .then(() => {
+                    .then((response) => {
+                        console.log(response);
+
                         this.message = 'Form sucessfully submitted!'
                     })
                     .catch(() => {
                         this.message = 'Ooops! Something went wrong!'
+                    })
+                    .finally(() => {
+                        this.loading = false;
                     })
             }
         }
