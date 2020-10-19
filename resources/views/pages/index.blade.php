@@ -121,7 +121,7 @@
     <section class="working" data-aos="fade-up" data-aos-duration="500">
         <div class="container">
             <div class="working__inner">
-                <div class="title">@lang('How we work?')</div>
+                <div class="title">@lang('main.How we work?')</div>
                 <div class="working__wrapper row">
                     @foreach($howItWorks as $key=>$howItWork)
                         <div class="working__item col-lg-3 col-md-6">
@@ -194,7 +194,7 @@
                         {{$consultant->title}}
                     </div>
                     <div class="discound__button">
-                        <button class="button">@lang('Online consultation')</button>
+                        <button class="button">@lang('main.Online consultation')</button>
                     </div>
                 </div>
                 <div class="discound__descr offset-md-1 col-md-5">

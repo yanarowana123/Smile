@@ -55,11 +55,11 @@
     <div class="container">
         <div class="popup__inner offset-md-1 col-md-10">
             <div class="popup__title">
-                @lang('Take an online consultation and get a discount!')
+                @lang('main.Take an online consultation and get a discount!')
                 <span aria-hidden="true" class="popup_icon">&times;</span>
             </div>
             <div class="popup__subtitle col-md-10">
-                @lang('Online consultation gives you the necessary recommendations, but will not be able to make an accurate diagnosis, as this requires an instrumental examination and x-ray of the tooth')
+                @lang('main.Online consultation gives you the necessary recommendations, but will not be able to make an accurate diagnosis, as this requires an instrumental examination and x-ray of the tooth')
             </div>
             <form action="/feedback" class="popup__form row"
                   @submit.prevent="submitData"
@@ -98,7 +98,7 @@
                         <button class="button"
                                 type="submit"
                                 :disabled="loading"
-                        >@lang('Book an appointment')
+                        >@lang('main.Book an appointment')
                         </button>
                     </div>
                     <p x-text="message" style="color: green" class="m-0 mr-md-2"></p>
