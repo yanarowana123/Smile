@@ -19,18 +19,25 @@ Route::get('/services', 'MainController@services')->name('services');
 Route::get('/staff', 'MainController@staff')->name('staff');
 Route::get('/our-works', 'MainController@works')->name('works');
 Route::get('/contacts', 'MainController@contacts')->name('contacts');
-Route::get('/feedback', 'MainController@feedback')->name('feedback');
+Route::post('/feedback', 'MainController@feedback')->name('feedback');
 
 Route::middleware('auth')
     ->prefix('admin/')
     ->name('admin.')
     ->namespace('Admin')
     ->group(function () {
-
         Route::get('/', function () {
             return redirect()->route('admin.staff.index');
         })->name('index');
 
+        Route::prefix('/feedback')->name('feedback.')->group(function () {
+            Route::get('/', 'FeedbackController@index')->name('index');
+            Route::post('/', 'FeedbackController@store')->name('index');
+            Route::get('/{application}/edit', 'FeedbackController@edit')->name('edit');
+            Route::put('/{application}/update', 'FeedbackController@update')->name('update');
+            Route::get('/{application}/make-contacted', 'FeedbackController@makeContacted')->name('contacted');
+            Route::get('/{application}/delete', 'FeedbackController@delete')->name('delete');
+        });
 
         Route::prefix('/gallery')->name('gallery.')->group(function () {
             Route::get('/', 'GalleryController@index')->name('index');

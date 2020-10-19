@@ -32,19 +32,19 @@
 <section class="active__header">
     <div class="active__menu active__menu-left">
         <a class="active__logo" href="index.html"
-        ><img src="img/logo.svg" alt="logo"
+        ><img src="{{asset('img/logo.svg')}}" alt="logo"
             /></a>
         <div class="container">
             <div class="active__link">
-                <a href="{{route('index')}}" class="close_navbar scroll-btn2">Главная</a>
-                <a href="{{route('about')}}" class="close_navbar scroll-btn2">О нас</a>
-                <a href="{{route('services')}}" class="close_navbar scroll-btn2">Услуги</a>
-                <a href="{{route('staff')}}" class="close_navbar scroll-btn2">Команда</a>
+                <a href="{{route('index')}}" class="close_navbar scroll-btn2">@lang('main.Home')</a>
+                <a href="{{route('about')}}" class="close_navbar scroll-btn2">@lang('main.About us')</a>
+                <a href="{{route('services')}}" class="close_navbar scroll-btn2">@lang('main.Services')</a>
+                <a href="{{route('staff')}}" class="close_navbar scroll-btn2">@lang('main.Our team')</a>
                 <a href="{{route('works')}}" class="close_navbar scroll-btn2"
-                >Наши работы</a
+                >@lang('main.Our work')</a
                 >
                 <a href="{{route('contacts')}}" class="close_navbar scroll-btn2"
-                >Контакты</a
+                >@lang('main.Contact us')</a
                 >
             </div>
         </div>
@@ -55,33 +55,33 @@
     <div class="container">
         <div class="popup__inner offset-md-1 col-md-10">
             <div class="popup__title">
-                Пройдите онлайн консультацию и получите скидку!
+                @lang('Take an online consultation and get a discount!')
                 <span aria-hidden="true" class="popup_icon">&times;</span>
             </div>
             <div class="popup__subtitle col-md-10">
-                Онлайн консультация – выдает вам необходимые рекомендации, но не
-                сможет поставить точный диагноз, так как для этого требуется
-                инструментальный осмотр и рентген зуба.
+                @lang('Online consultation gives you the necessary recommendations, but will not be able to make an accurate diagnosis, as this requires an instrumental examination and x-ray of the tooth')
             </div>
             <form action="/feedback" class="popup__form row"
                   @submit.prevent="submitData"
-                  x-data="contactForm()"
-            >
+                  x-data="contactForm()">
+                @csrf
                 <div class="col-md-6">
                     <input type="text" name="name" class="popup__input"
                            x-model="formData.name"
+                           required
                            placeholder="Имя"/>
                     <input
                         type="text"
                         name="phone"
-                        x-model="formData.phone"
+                        id="phone_input"
                         class="popup__input"
+                        required
                         placeholder="Номер телефона"
                     />
                     <input type="text" class="popup__input"
                            name="email"
                            x-model="formData.email"
-
+                           required
                            placeholder="E-mail"/>
                 </div>
                 <div class="col-md-6">
@@ -89,18 +89,21 @@
                   class="popup__textarea"
                   name="message"
                   x-model="formData.message"
-
+                  required
                   placeholder="Что вас беспокоит?"
               ></textarea>
                 </div>
-                <div class="popup__button">
-                    <button class="button"
-                            type="submit"
-                            :disabled="loading"
-                    >Записаться</button>
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="popup__button">
+                        <button class="button"
+                                type="submit"
+                                :disabled="loading"
+                        >@lang('Book an appointment')
+                        </button>
+                    </div>
+                    <p x-text="message" style="color: green" class="m-0 mr-md-2"></p>
                 </div>
             </form>
-
         </div>
     </div>
 </section>
@@ -125,23 +128,23 @@
                 >
             </div>
             <div class="offset-md-1 col-md-2 col-6">
-                <p class="footer__title">навигация</p>
+                <p class="footer__title">@lang('main.navigation')</p>
                 <div class="a1 footer__column">
-                    <a href="{{route('index')}}" class="footer__link scroll-btn">Главная</a>
-                    <a href="{{route('about')}}" class="footer__link scroll-btn">О нас</a>
-                    <a href="{{route('services')}}" class="footer__link scroll-btn">Услуги</a>
-                    <a href="{{route('staff')}}" class="footer__link scroll-btn">Команда</a>
+                    <a href="{{route('index')}}" class="footer__link scroll-btn">@lang('main.Home')</a>
+                    <a href="{{route('about')}}" class="footer__link scroll-btn">@lang('main.About us')</a>
+                    <a href="{{route('services')}}" class="footer__link scroll-btn">@lang('main.Services')</a>
+                    <a href="{{route('staff')}}" class="footer__link scroll-btn">@lang('main.Our team')</a>
                     <a href="{{route('works')}}" class="footer__link scroll-btn"
-                    >Наши работы</a
+                    >@lang('main.Our work')</a
                     >
                     <a href="{{route('contacts')}}" class="footer__link scroll-btn"
-                    >Контакты</a
+                    >@lang('main.Contact us')</a
                     >
                 </div>
             </div>
             <div class="offset-md-1 col-md-4 col-6">
                 <div class="footer__column">
-                    <p class="footer__title">контакты</p>
+                    <p class="footer__title">@lang('main.contacts')</p>
                     @foreach($phones as $phone)
                         <a href="tel:{{$phone->content}}" class="footer__link"
                         >{{$phone->content}}</a
@@ -154,7 +157,7 @@
                     @endforeach
                 </div>
             </div>
-            <p class="footer__link mobile-open">© 2020 Все права защищены</p>
+            <p class="footer__link mobile-open">© {{date('Y')}} @lang('All rights reserved')</p>
             <a href="https://blammo.kz/" class="footer__link mobile-open"
             >Разработано студией <span>Blammo.kz</span></a
             >
@@ -176,26 +179,26 @@
                 email: '',
                 phone: '',
                 message: '',
-                _token: "{{ csrf_token() }}"
+                _token: $('form').find('input[name="_token"]').val()
             },
             message: '',
-            loading:'',
-
+            loading: false,
             submitData() {
+                this.formData.phone = $('#phone_input').val();
+                console.log(JSON.stringify(this.formData));
                 this.loading = true;
                 this.message = '';
-                fetch('/feedback', {
+
+                fetch('{{route('feedback')}}', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(this.formData)
                 })
                     .then((response) => {
-                        console.log(response);
-
-                        this.message = 'Form sucessfully submitted!'
+                        this.message = "{{__('main.form_success')}}"
                     })
                     .catch(() => {
-                        this.message = 'Ooops! Something went wrong!'
+                        this.message = 'Error';
                     })
                     .finally(() => {
                         this.loading = false;

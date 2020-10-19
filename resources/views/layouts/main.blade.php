@@ -63,14 +63,14 @@
                     <a
                         class="header__link header__link_active scroll-btn"
                         href="{{route('index')}}"
-                    >Главная</a
+                    >@lang('main.Home')</a
                     >
                     <a
                         class="header__link
                         {{request()->route()->named('about')?'header__link_current_active':''}}
                             scroll-btn"
                         href="{{route('about')}}"
-                    >О нас</a
+                    >@lang('main.About us')</a
                     >
                     <a
                         class="header__link header__link_active
@@ -78,7 +78,7 @@
 
                             scroll-btn"
                         href="{{route('services')}}"
-                    >Услуги</a
+                    >@lang('main.Services')</a
                     >
                     <a
                         class="header__link header__link_active
@@ -86,7 +86,7 @@
 
                             scroll-btn"
                         href="{{route('staff')}}"
-                    >Команда</a
+                    >@lang('main.Our team')</a
                     >
                     <a
                         class="header__link header__link_active
@@ -94,7 +94,7 @@
 
                             scroll-btn"
                         href="{{route('works')}}"
-                    >Наши работы</a
+                    >@lang('main.Our work')</a
                     >
                     <a
                         class="header__link header__link_active
@@ -102,7 +102,7 @@
 
                             scroll-btn"
                         href="{{route('contacts')}}"
-                    >Контакты</a
+                    >@lang('main.Contact us')</a
                     >
                     <div class="header__navbar__lang">
                         <div class="header__navbar__lang__content">
@@ -147,22 +147,23 @@
                 >
             </div>
             <div class="offset-md-1 col-md-2 col-6">
-                <p class="footer__title">навигация</p>
+                <p class="footer__title">@lang('main.navigation')</p>
                 <div class="a1 footer__column">
-                    <a href="{{route('index')}}" class="footer__link scroll-btn">Главная</a>
-                    <a href="{{route('about')}}" class="footer__link scroll-btn">О нас</a>
-                    <a href="{{route('services')}}" class="footer__link scroll-btn">Услуги</a>
-                    <a href="{{route('staff')}}" class="footer__link scroll-btn">Команда</a>
+                    <a href="{{route('index')}}" class="footer__link scroll-btn">@lang('main.Home')</a>
+                    <a href="{{route('about')}}" class="footer__link scroll-btn">@lang('main.About us')</a>
+                    <a href="{{route('services')}}" class="footer__link scroll-btn">@lang('main.Services')</a>
+                    <a href="{{route('staff')}}" class="footer__link scroll-btn">@lang('main.Our team')</a>
                     <a href="{{route('works')}}" class="footer__link scroll-btn"
-                    >Наши работы</a
+                    >@lang('main.Our work')</a
                     >
                     <a href="{{route('contacts')}}" class="footer__link scroll-btn"
-                    >Контакты</a
+                    >@lang('main.Contact us')</a
                     >
-                </div>            </div>
+                </div>
+            </div>
             <div class="offset-md-1 col-md-4 col-6">
                 <div class="footer__column">
-                    <p class="footer__title">контакты</p>
+                    <p class="footer__title">@lang('main.contacts')</p>
                     @foreach($phones as $phone)
                         <a href="tel:{{$phone->content}}" class="footer__link"
                         >{{$phone->content}}</a

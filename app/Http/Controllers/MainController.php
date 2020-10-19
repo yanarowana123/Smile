@@ -4,12 +4,16 @@
 namespace App\Http\Controllers;
 
 
+use App\Mail\FeedbackMail;
+use App\Models\Email;
 use App\Models\Feature;
 use App\Models\Feedback;
 use App\Models\Main;
 use App\Models\Photo;
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Validator;
 
 class MainController extends Controller
 {
@@ -21,6 +25,7 @@ class MainController extends Controller
         $howItWorks = Feature::where('block', Feature::WORK)->get();
         $innovationFeatures = Feature::where('block', Feature::TECH)->get();
         $features = Feature::where('block', Feature::HOME)->get();
+
 
         $about = Main::where('page', Main::ABOUT)->where('block', Main::HEADER)->first();
         $aboutImg = Photo::where('page', Photo::HOMEABOUT)->first();
@@ -67,25 +72,30 @@ class MainController extends Controller
         return view('pages.contacts', compact('header'));
     }
 
-    public function feedback(Request $request){
+    public function feedback(Request $request)
+    {
+        $messages = [
+            'required' => 'The :attribute field is required.',
+        ];
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'email' => 'required|string|max:255',
             'message' => 'required|string|max:700',
-        ]);
+        ], $messages);
+
+        $data = $request->all();
 
         if ($validator->passes()) {
-            $application = new Feedback();
-            $application->name = $request->name;
-            $application->phone = $request->phone;
-            $application->email = $request->email;
-            $application->message = $request->message;
-            $application->save();
-            return response()->json(['success' => __('main.form_success', ['name' => $request->name])]);
+
+            Feedback::create($data);
+            $toEmail = Email::first()->email;
+            Mail::to($toEmail)->send(new FeedbackMail($data));
+            return response()->json(['success' => 'ok']);
         }
 
         return response()->json(['error' => $validator->errors()->all()]);
-
     }
+
+
 }

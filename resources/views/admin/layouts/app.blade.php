@@ -292,11 +292,14 @@ request()->route()->parameter('page') =='work')?'active':''}}
 
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                        <a href="{{route('admin.feedback.index')}}"
+                           class="{{request()->route()->named('admin.feedback.*')?'active':''}}
+                               nav-link">
+                            <i class="nav-icon fa fa-phone-square-alt"></i>
                             <p>
-                                Simple Link
-                                <span class="right badge badge-danger">New</span>
+                                Заявки
+                                <span
+                                    class="right badge badge-danger">{{\App\Models\Feedback::where('is_contacted',0)->count()}}</span>
                             </p>
                         </a>
                     </li>

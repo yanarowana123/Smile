@@ -5,38 +5,38 @@
             <div class="container">
                 <div class="header__inner">
                     <a class="header__logo" href="index.html"
-                    ><img src="img/logo.svg" alt="Smile-Logo"
+                    ><img src="{{asset('img/logo.svg')}}" alt="Smile-Logo"
                         /></a>
                     <div class="header__navbar">
                         <a
                             class="header__link header__link_current_active scroll-btn"
                             href="{{route('index')}}"
-                        >Главная</a
+                        >@lang('main.Home')</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
                             href="{{route('about')}}"
-                        >О нас</a
+                        >@lang('main.About us')</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
                             href="{{route('services')}}"
-                        >Услуги</a
+                        >@lang('main.Services')</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
                             href="{{route('staff')}}"
-                        >Команда</a
+                        >@lang('main.Our tem')</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
                             href="{{route('works')}}"
-                        >Наши работы</a
+                        >@lang('main.Our work')</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
                             href="{{route('contacts')}}"
-                        >Контакты</a
+                        >@lang('main.Contact us')</a
                         >
                         <div class="header__navbar__lang">
                             <div class="header__navbar__lang__content">
@@ -80,12 +80,12 @@
                 <div class="row">
                     <div class="main__descr col-md-6">
                         <div class="main__title col-lg-10">
-                            Smile - чтобы вы улыбались
+                            {{$header->title}}
                         </div>
                         <div class="main__subtitle">
-                            Запишитесь на онлайн консультацию сейчас и получите скидку
+                            {!! $header->content !!}
                         </div>
-                        <button class="button">Онлайн консультация</button>
+                        <button class="button">@lang('main.Online consultation')</button>
                     </div>
                     <div class="main__img offset-lg-1 col-md-5">
                         <img src="img/main-icon.png" alt=""/>
@@ -105,7 +105,9 @@
                         <p>
                         {!! $about->content !!}
                         <div class="about-us__button">
-                            <a href="{{route('about')}}" class="button" style="padding: 18px 83px">Подробнее</a>
+                            <a href="{{route('about')}}" class="button" style="padding: 18px 83px">
+                                @lang('main.More')
+                            </a>
                         </div>
                     </div>
                     <div class="about-us__img offset-lg-1 col-lg-6">
@@ -119,7 +121,7 @@
     <section class="working" data-aos="fade-up" data-aos-duration="500">
         <div class="container">
             <div class="working__inner">
-                <div class="title">Как мы работаем?</div>
+                <div class="title">@lang('How we work?')</div>
                 <div class="working__wrapper row">
                     @foreach($howItWorks as $key=>$howItWork)
                         <div class="working__item col-lg-3 col-md-6">
@@ -169,7 +171,7 @@
     <section class="advantages" data-aos="fade-up" data-aos-duration="500">
         <div class="container">
             <div class="advantages__inner row">
-                <div class="title col-md-3">Преимущества</div>
+                <div class="title col-md-3">@lang('main.Advantages')</div>
                 <div
                     class="advantages__wrapper offset-lg-1 col-lg-8 offset-md-2 col-md-7"
                 >
@@ -189,10 +191,10 @@
             <div class="discound__inner row">
                 <div class="discound__wrapper col-md-6">
                     <div class="title">
-                        Пройдите онлайн консультацию и получите скидку!
+                        {{$consultant->title}}
                     </div>
                     <div class="discound__button">
-                        <button class="button">{{$consultant->title}}</button>
+                        <button class="button">@lang('Online consultation')</button>
                     </div>
                 </div>
                 <div class="discound__descr offset-md-1 col-md-5">
