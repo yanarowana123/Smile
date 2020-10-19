@@ -32,7 +32,7 @@
 
 <section class="active__header">
     <div class="active__menu active__menu-left">
-        <a class="active__logo" href="index.html"
+        <a class="active__logo" href="{{route('index')}}"
         ><img src="{{asset('img/logo.svg')}}" alt="logo"
             /></a>
         <div class="container">
@@ -56,7 +56,7 @@
     <header class="header">
         <div class="container">
             <div class="header__inner">
-                <a class="header__logo" href="index.html"
+                <a class="header__logo" href="{{route('index')}}"
                 ><img src="{{asset('img/logo.svg')}}" alt="Smile-Logo"
                     /></a>
                 <div class="header__navbar">
@@ -133,7 +133,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <a href="index.html">
+                <a href="{{route('index')}}">
                     <img src="{{asset('img/logo.svg')}}" alt="logo" class="footer__logo"/>
                 </a>
                 <div class="footer__social">

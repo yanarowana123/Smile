@@ -4,7 +4,7 @@
         <header class="header">
             <div class="container">
                 <div class="header__inner">
-                    <a class="header__logo" href="index.html"
+                    <a class="header__logo" href="{{route('index')}}"
                     ><img src="{{asset('img/logo.svg')}}" alt="Smile-Logo"
                         /></a>
                     <div class="header__navbar">
@@ -26,7 +26,7 @@
                         <a
                             class="header__link header__link_active scroll-btn"
                             href="{{route('staff')}}"
-                        >@lang('main.Our tem')</a
+                        >@lang('main.Our team')</a
                         >
                         <a
                             class="header__link header__link_active scroll-btn"
