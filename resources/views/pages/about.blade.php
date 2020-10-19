@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
     <section class="gallery-main">
         <div class="container">
             <div class="gallery-main__inner">
@@ -37,7 +39,9 @@
             <div class="gallery-content__inner">
                 <div class="row">
                     <aside class="gallery-content__descr col-md-5">
-                        {!! $feature->content !!}
+                        <div class="content">
+                            {!! $header->content !!}
+                        </div>
                     </aside>
                     <div class="gallery-content__photo offset-md-1 col-md-6">
                         @foreach($images as $image)
@@ -48,6 +52,23 @@
             </div>
         </div>
     </div>
+
+{{--    <div class="gallery-content">--}}
+{{--        <div class="container">--}}
+{{--            <div class="gallery-content__inner">--}}
+{{--                <div class="row">--}}
+{{--                    <aside class="gallery-content__descr col-md-5">--}}
+{{--                        {!! $feature->content !!}--}}
+{{--                    </aside>--}}
+{{--                    <div class="gallery-content__photo offset-md-1 col-md-6">--}}
+{{--                        @foreach($images as $image)--}}
+{{--                            <img src="{{asset($image->path)}}" alt=""/>--}}
+{{--                        @endforeach--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 @endsection
