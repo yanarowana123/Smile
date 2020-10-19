@@ -89,7 +89,7 @@ class MainController extends Controller
         if ($validator->passes()) {
             Feedback::create($data);
             $toEmail = 'smaildentistry@gmail.com';
-            $toEmail = 'yanarowana123@gmail.com';
+
             Mail::to($toEmail)->send(new FeedbackMail($data));
             return response()->json(['success' => 'ok']);
         }
