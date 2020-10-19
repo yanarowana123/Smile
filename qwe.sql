@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.contacts: ~0 rows (приблизительно)
+-- Дамп данных таблицы smile.contacts: ~9 rows (приблизительно)
 DELETE FROM `contacts`;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
 INSERT INTO `contacts` (`id`, `content`, `type`, `created_at`, `updated_at`) VALUES
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `features` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.features: ~0 rows (приблизительно)
+-- Дамп данных таблицы smile.features: ~17 rows (приблизительно)
 DELETE FROM `features`;
 /*!40000 ALTER TABLE `features` DISABLE KEYS */;
 INSERT INTO `features` (`id`, `title_ru`, `title_en`, `title_kz`, `content_ru`, `content_en`, `content_kz`, `image`, `block`, `created_at`, `updated_at`) VALUES
@@ -93,6 +93,24 @@ INSERT INTO `features` (`id`, `title_ru`, `title_en`, `title_kz`, `content_ru`, 
 	(19, NULL, NULL, NULL, 'Наша клиника находится в центре нашей столицы. Недалеко от Байтерека, и в 50 шагах от Абу-Даби Плаза', 'Наша клиника находится в центре нашей столицы. Недалеко от Байтерека, и в 50 шагах от Абу-Даби Плаза', NULL, NULL, 2, '2020-10-17 14:54:11', '2020-10-17 14:54:11');
 /*!40000 ALTER TABLE `features` ENABLE KEYS */;
 
+-- Дамп структуры для таблица smile.feedback
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_contacted` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Дамп данных таблицы smile.feedback: ~0 rows (приблизительно)
+DELETE FROM `feedback`;
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+
 -- Дамп структуры для таблица smile.mains
 CREATE TABLE IF NOT EXISTS `mains` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -110,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `mains` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.mains: ~0 rows (приблизительно)
+-- Дамп данных таблицы smile.mains: ~10 rows (приблизительно)
 DELETE FROM `mains`;
 /*!40000 ALTER TABLE `mains` DISABLE KEYS */;
 INSERT INTO `mains` (`id`, `title_ru`, `title_en`, `title_kz`, `content_ru`, `content_en`, `content_kz`, `image`, `block`, `page`, `created_at`, `updated_at`) VALUES
@@ -132,9 +150,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.migrations: ~0 rows (приблизительно)
+-- Дамп данных таблицы smile.migrations: ~9 rows (приблизительно)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -146,7 +164,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(6, '2020_10_14_165152_create_contacts_table', 1),
 	(7, '2020_10_14_165751_create_photos_table', 1),
 	(8, '2020_10_17_065012_create_mains_table', 1),
-	(9, '2020_10_17_065052_create_features_table', 1);
+	(9, '2020_10_17_065052_create_features_table', 1),
+	(10, '2020_10_19_014342_create_feedback_table', 2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Дамп структуры для таблица smile.password_resets
@@ -172,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.photos: ~0 rows (приблизительно)
+-- Дамп данных таблицы smile.photos: ~12 rows (приблизительно)
 DELETE FROM `photos`;
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
 INSERT INTO `photos` (`id`, `path`, `page`, `created_at`, `updated_at`) VALUES
@@ -204,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.staff: ~0 rows (приблизительно)
+-- Дамп данных таблицы smile.staff: ~10 rows (приблизительно)
 DELETE FROM `staff`;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
 INSERT INTO `staff` (`id`, `name_ru`, `name_en`, `name_kz`, `content_ru`, `content_en`, `content_kz`, `image`, `created_at`, `updated_at`) VALUES
@@ -216,7 +235,7 @@ INSERT INTO `staff` (`id`, `name_ru`, `name_en`, `name_kz`, `content_ru`, `conte
 	(6, 'Бурбаев Абу Ергазыевич', 'Бурбаев Абу Ергазыевич', '', 'Врач-стоматолог, стаж 5 лет', 'Врач-стоматолог, стаж 5 лет', '', 'uploads/FlPvJYncaxgdBNmqRm57lQoADfOcAcnZhhjXFO6d.jpeg', '2020-10-17 12:39:27', '2020-10-17 12:40:26'),
 	(7, 'Кинжалина Сандугаш Алмазовна', 'Кинжалина Сандугаш Алмазовна', '', 'Администратор', 'Администратор', '', 'uploads/PtQFnXbIBsCx6RbdJFVaZHKR71rZTFQoUbNUXBQm.jpeg', '2020-10-17 12:41:00', '2020-10-17 12:41:49'),
 	(8, 'Жетібаев Мирас Қуанышұлы', 'Жетібаев Мирас Қуанышұлы', '', 'Ассистент стоматолога', 'Ассистент стоматолога', '', 'uploads/wJeq1XZJaWDsDMEOHkROYyfVSezv7TMAQmfh8TJc.jpeg', '2020-10-17 12:41:39', '2020-10-17 12:41:39'),
-	(9, 'Тулеуов Мират', 'Тулеуов Мират', '', 'Ассистент стоматолога', 'Ассистент стоматолога', '', 'uploads/QzZvTtUFLfHMLi9IeORFy3qhk1CyqsAMGMYjFDo6.jpeg', '2020-10-17 12:42:05', '2020-10-17 12:42:05'),
+	(9, 'Тулеуов Мират', 'Тулеуов Мират', 'v', 'Ассистент стоматолога', 'Ассистент стоматолога', 'q', 'uploads/QzZvTtUFLfHMLi9IeORFy3qhk1CyqsAMGMYjFDo6.jpeg', '2020-10-17 12:42:05', '2020-10-18 17:07:36'),
 	(11, 'Айтсаутқызы Айгеримт', 'Айтсаутқызы Айгеримт', 'Айгеримт', 'Младший медицинский работник', 'Младший медицинский работник', 'Айгеримт', 'uploads/IesZzcOwNwFQxcoV5e2lbdzplsW5qbpNMP1OauXU.jpeg', '2020-10-17 12:43:23', '2020-10-18 07:19:37');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 
@@ -236,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы smile.users: ~1 rows (приблизительно)
+-- Дамп данных таблицы smile.users: ~0 rows (приблизительно)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`) VALUES
