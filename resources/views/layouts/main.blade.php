@@ -30,6 +30,8 @@
 
 <body>
 
+@stack('styles')
+
 <section class="active__header">
     <div class="active__menu active__menu-left">
         <a class="active__logo" href="{{route('index')}}"
@@ -187,5 +189,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{{asset('js/libs.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+
+
 </body>
 </html>

@@ -28,6 +28,7 @@
 </head>
 
 <body>
+@stack('styles')
 
 <section class="active__header">
     <div class="active__menu active__menu-left">
@@ -94,7 +95,7 @@
               ></textarea>
                 </div>
                 <div class="d-flex flex-column flex-md-row align-items-center">
-                    <div class="popup__button">
+                    <div class="popup__button" style="margin-left: 15px">
                         <button class="button"
                                 type="submit"
                                 :disabled="loading"
