@@ -79,8 +79,13 @@
 @push('styles')
 
     <style>
-        .gallery-main {
+        .gallery-main__inner {
             position: relative;
+            padding-top: 100px;
         }
+        .gallery-main {
+            padding-top: 0 !important;
+        }
+        .main-slick
     </style>
 @endpush

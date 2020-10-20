@@ -221,7 +221,16 @@
 @push('styles')
     <style>
         .main-slick__carousel img{
-            height: 660px;
+            height: 100vh;
+        }
+        .about-us__button {
+            margin-top: 20px;
+        }
+        @media (max-width: 767px) {
+            .main-slick__carousel img{
+                height: 50vh !important;
+            }
+
         }
     </style>
     @endpush
