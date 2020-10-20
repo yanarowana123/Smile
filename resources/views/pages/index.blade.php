@@ -220,6 +220,8 @@
 
 @push('styles')
     <style>
-
+        .main-slick__carousel img{
+            height: 660px;
+        }
     </style>
     @endpush
