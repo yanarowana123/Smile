@@ -221,7 +221,7 @@
 @push('styles')
     <style>
         .main-slick__carousel img{
-            height: 100vh;
+            height: 90vh;
         }
         .about-us__button {
             margin-top: 20px;
