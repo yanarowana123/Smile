@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="content_kz">Content</label>
+                        <label for="content_kz">Мазмұны</label>
                         <input name="content_kz" type="text" class="form-control" id="content_kz"
                                value="{{$contact->content_kz}}"
                         >
