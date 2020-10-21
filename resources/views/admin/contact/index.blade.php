@@ -30,7 +30,7 @@
                                 </th>
                                 <th scope="row">
                                     <a
-                                        href="{{route('admin.contact.edit',$contact->id)}}">{{$contact->content}} </a>
+                                        href="{{route('admin.contact.edit',$contact->id)}}">{{$contact->content_ru}} </a>
                                 </th>
                                 <th scope="row">
                                     <a
