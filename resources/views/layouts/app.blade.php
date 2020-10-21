@@ -127,7 +127,7 @@
                 <!-- <p class="footer__link mobile-none">© 2018 Все права защищены</p> -->
                     <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
                     >Разработано студией <span>Blammo.kz</span></a>
-                @elseif(app()->getLocale() =='en')
+                @elseif(app()->getLocale() =='kk')
                     <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
                     ><span>Blammo.kz</span> студиясы әзірлеген</a>
                 @else
@@ -170,7 +170,7 @@
             @if(app()->getLocale() =='ru')
             <a href="https://blammo.kz/" class="footer__link mobile-open">
                 Разработано студией <span>Blammo.kz</span></a>
-            @elseif(app()->getLocale() =='en')
+            @elseif(app()->getLocale() =='kk')
                 <a href="https://blammo.kz/" class="footer__link mobile-open">
                <span>Blammo.kz</span> студиясы әзірлеген</a>
             @else
