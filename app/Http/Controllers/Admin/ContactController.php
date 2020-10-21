@@ -24,7 +24,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'content' => 'required|string|max:255',
+            'content_ru' => 'required|string|max:255',
+            'content_en' => 'required|string|max:255',
+            'content_kz' => 'required|string|max:255',
             'type' => 'required|integer|digits:1',
         ]);
 
@@ -46,8 +48,9 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact)
     {
         $validatedData = $request->validate([
-
-            'content' => 'required|string|max:255',
+            'content_ru' => 'required|string|max:255',
+            'content_en' => 'required|string|max:255',
+            'content_kz' => 'required|string|max:255',
             'type' => 'required|integer',
         ]);
 
