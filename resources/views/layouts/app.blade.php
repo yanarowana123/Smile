@@ -172,10 +172,10 @@
                 Разработано студией <span>Blammo.kz</span></a>
             @elseif(app()->getLocale() =='en')
                 <a href="https://blammo.kz/" class="footer__link mobile-open">
-               <span>Blammo.kz</span>студиясы әзірлеген</a>
+               <span>Blammo.kz</span> студиясы әзірлеген</a>
             @else
                 <a href="https://blammo.kz/" class="footer__link mobile-open">
-                    Made <span>Blammo.kz</span></a>
+                    Made by <span>Blammo.kz</span></a>
             @endif
         </div>
     </div>
