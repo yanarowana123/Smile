@@ -23,5 +23,7 @@ return [
     'navigation' => 'navigation',
     'contacts' => 'contacts',
     'More' => 'More',
+    'What worries you?' =>'What worries you?',
+
 
 ];

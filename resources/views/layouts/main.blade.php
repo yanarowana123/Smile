@@ -39,15 +39,15 @@
             /></a>
         <div class="container">
             <div class="active__link">
-                <a href="{{route('index')}}" class="close_navbar scroll-btn2">Главная</a>
-                <a href="{{route('about')}}" class="close_navbar scroll-btn2">О нас</a>
-                <a href="{{route('services')}}" class="close_navbar scroll-btn2">Услуги</a>
-                <a href="{{route('staff')}}" class="close_navbar scroll-btn2">Команда</a>
+                <a href="{{route('index')}}" class="close_navbar scroll-btn2">@lang('main.Home')</a>
+                <a href="{{route('about')}}" class="close_navbar scroll-btn2">@lang('main.About us')</a>
+                <a href="{{route('services')}}" class="close_navbar scroll-btn2">@lang('main.Services')</a>
+                <a href="{{route('staff')}}" class="close_navbar scroll-btn2">@lang('main.Our team')</a>
                 <a href="{{route('works')}}" class="close_navbar scroll-btn2"
-                >Наши работы</a
+                >@lang('main.Our work')</a
                 >
                 <a href="{{route('contacts')}}" class="close_navbar scroll-btn2"
-                >Контакты</a
+                >@lang('main.Contact us')</a
                 >
             </div>
         </div>
@@ -143,10 +143,17 @@
                     <a href="{{$instagram}}"><img src="{{asset('img/instagram.svg')}}" alt="youtube"/></a>
                     <a href="{{$whatsapp}}"><img src="{{asset('img/whatsapp.svg')}}" alt="youtube"/></a>
                 </div>
+            @if(app()->getLocale() =='ru')
                 <!-- <p class="footer__link mobile-none">© 2018 Все права защищены</p> -->
-                <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
-                >Разработано студией <span>Blammo.kz</span></a
-                >
+                    <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
+                    >Разработано студией <span>Blammo.kz</span></a>
+                @elseif(app()->getLocale() =='en')
+                    <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
+                    ><span>Blammo.kz</span> студиясы әзірлеген</a>
+                @else
+                    <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
+                    >Made by<span>Blammo.kz</span> </a>
+                @endif
             </div>
             <div class="offset-md-1 col-md-2 col-6">
                 <p class="footer__title">@lang('main.navigation')</p>
@@ -178,10 +185,17 @@
                     @endforeach
                 </div>
             </div>
-            <p class="footer__link mobile-open">© 2020 Все права защищены</p>
-            <a href="https://blammo.kz/" class="footer__link mobile-open"
-            >Разработано студией <span>Blammo.kz</span></a
-            >
+            <p class="footer__link mobile-open">© {{date('Y')}} @lang('All rights reserved')</p>
+            @if(app()->getLocale() =='ru')
+                <a href="https://blammo.kz/" class="footer__link mobile-open">
+                    Разработано студией <span>Blammo.kz</span></a>
+            @elseif(app()->getLocale() =='en')
+                <a href="https://blammo.kz/" class="footer__link mobile-open">
+                    <span>Blammo.kz</span>студиясы әзірлеген</a>
+            @else
+                <a href="https://blammo.kz/" class="footer__link mobile-open">
+                    Made <span>Blammo.kz</span></a>
+            @endif
         </div>
     </div>
 </footer>

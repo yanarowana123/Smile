@@ -1,7 +1,7 @@
 <?php
 return [
 
-    'form_success' => 'Ваша заявка принята. Мы свяжемся с Вами в ближайшее время!',
+    'form_success' => 'Біз сізбен хабарласамыз!',
     'Home' => 'Главная',
     'About us' => 'О нас',
     'Our team' => 'Команда',
@@ -22,8 +22,10 @@ return [
     'Work schedule' => 'График работы',
     'All rights reserved' => 'Все права защищены',
     'navigation' => 'навигация',
-    'contacts' => 'contacts',
+    'contacts' => 'контакты',
     'More' => 'Подробнее',
+    'What worries you?' =>'Что вас беспокоит?',
+
 
 
 

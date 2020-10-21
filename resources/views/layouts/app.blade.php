@@ -70,14 +70,14 @@
                     <input type="text" name="name" class="popup__input"
                            x-model="formData.name"
                            required
-                           placeholder="Имя"/>
+                           placeholder="@lang('main.Name')"/>
                     <input
                         type="text"
                         name="phone"
                         id="phone_input"
                         class="popup__input"
                         required
-                        placeholder="Номер телефона"
+                        placeholder="@lang('main.Phone number')"
                     />
                     <input type="text" class="popup__input"
                            name="email"
@@ -91,7 +91,7 @@
                   name="message"
                   x-model="formData.message"
                   required
-                  placeholder="Что вас беспокоит?"
+                  placeholder="@lang('main.What worries you?')"
               ></textarea>
                 </div>
                 <div class="d-flex flex-column flex-md-row align-items-center">
@@ -123,10 +123,18 @@
                     <a href="{{$instagram}}"><img src="{{asset('img/instagram.svg')}}" alt="youtube"/></a>
                     <a href="{{$whatsapp}}"><img src="{{asset('img/whatsapp.svg')}}" alt="youtube"/></a>
                 </div>
+              @if(app()->getLocale() =='ru')
                 <!-- <p class="footer__link mobile-none">© 2018 Все права защищены</p> -->
-                <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
-                >Разработано студией <span>Blammo.kz</span></a
-                >
+                    <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
+                    >Разработано студией <span>Blammo.kz</span></a>
+                @elseif(app()->getLocale() =='en')
+                    <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
+                    ><span>Blammo.kz</span> студиясы әзірлеген</a>
+                @else
+                    <a href="https://blammo.kz/" class="blammo footer__link mobile-none"
+                    >Made by<span>Blammo.kz</span> </a>
+                @endif
+
             </div>
             <div class="offset-md-1 col-md-2 col-6">
                 <p class="footer__title">@lang('main.navigation')</p>
@@ -159,9 +167,16 @@
                 </div>
             </div>
             <p class="footer__link mobile-open">© {{date('Y')}} @lang('All rights reserved')</p>
-            <a href="https://blammo.kz/" class="footer__link mobile-open"
-            >Разработано студией <span>Blammo.kz</span></a
-            >
+            @if(app()->getLocale() =='ru')
+            <a href="https://blammo.kz/" class="footer__link mobile-open">
+                Разработано студией <span>Blammo.kz</span></a>
+            @elseif(app()->getLocale() =='en')
+                <a href="https://blammo.kz/" class="footer__link mobile-open">
+               <span>Blammo.kz</span>студиясы әзірлеген</a>
+            @else
+                <a href="https://blammo.kz/" class="footer__link mobile-open">
+                    Made <span>Blammo.kz</span></a>
+            @endif
         </div>
     </div>
 </footer>

@@ -73,7 +73,7 @@
                         </li>
                         <li>
                             <a href="/kk"><img src="{{asset('img/kaz.png')}}"
-                                                                                       alt=""/> KZ</a>
+                                               alt=""/> KZ</a>
                         </li>
                     </ul>
                 </div>
@@ -88,7 +88,7 @@
                         <button class="button">@lang('main.Online consultation')</button>
                     </div>
                     <div class="main__img offset-lg-1 col-md-5">
-                        <img src="img/main-icon.png" alt=""/>
+                        <img src="{{asset('img/main-icon.png')}}" alt=""/>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
             <div class="about-us__inner">
                 <div class="about-us__wrapper row">
                     <div class="about-us__description col-lg-5">
-                        <div class="title about-us__title">О нас</div>
+                        <div class="title about-us__title">@lang('main.About us')</div>
                         <p>
                         {!! $about->content !!}
                         <div class="about-us__button">
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     <div class="about-us__img offset-lg-1 col-lg-6">
-                        <img src="{{$aboutImg->path}}" alt="about-us"/>
+                        <img src="{{asset($aboutImg->path)}}" alt="about-us"/>
                     </div>
                 </div>
             </div>
@@ -220,17 +220,19 @@
 
 @push('styles')
     <style>
-        .main-slick__carousel img{
+        .main-slick__carousel img {
             height: 90vh;
         }
+
         .about-us__button {
             margin-top: 20px;
         }
+
         @media (max-width: 767px) {
-            .main-slick__carousel img{
+            .main-slick__carousel img {
                 height: 50vh !important;
             }
 
         }
     </style>
-    @endpush
+@endpush
