@@ -8,11 +8,31 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="content">Контент</label>
-                        <input name="content" type="text" class="form-control" id="content"
-                               value="{{old('content')}}"
+                        <label for="content_ru">Контент</label>
+                        <input name="content_ru" type="text" class="form-control" id="content_ru"
+                               value="{{old('content_ru')}}"
                         >
-                        @error('content')
+                        @error('content_ru')
+                        <div class="text-red">{{$message}}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content_en">Content</label>
+                        <input name="content_en" type="text" class="form-control" id="content_en"
+                               value="{{old('content_en')}}"
+                        >
+                        @error('content_en')
+                        <div class="text-red">{{$message}}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content_kz">Мазмұны</label>
+                        <input name="content_kz" type="text" class="form-control" id="content_kz"
+                               value="{{old('content_kz')}}"
+                        >
+                        @error('content_kz')
                         <div class="text-red">{{$message}}</div>
                         @enderror
                     </div>
