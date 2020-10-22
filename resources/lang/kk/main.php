@@ -23,6 +23,6 @@ return [
     'All rights reserved' => 'All rights reserved',
     'navigation' => 'навигация',
     'contacts' => 'байланыс',
-    'More' => 'Тағы',
+    'More' => 'ТОЛЫҒЫРАҚ',
 
 ];
