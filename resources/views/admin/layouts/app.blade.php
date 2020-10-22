@@ -284,6 +284,13 @@ request()->route()->parameter('page') =='work')?'active':''}}
 
 
                     <li class="nav-item">
+                        <a href="{{route('admin.content.index','content','header')}}" class="nav-link">
+                            <i class="fa-circle nav-icon {{request()->route()->named('admin.contact.*')?'fas':'far'}}"></i>
+                            <p>Контакты Текст</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{route('admin.contact.index')}}" class="nav-link">
                             <i class="fa-circle nav-icon {{request()->route()->named('admin.contact.*')?'fas':'far'}}"></i>
                             <p>Контакты</p>

@@ -111,5 +111,9 @@ Route::middleware('auth')
             });
 
 
+            Route::get('content/{page}/{block}', 'MainController@index')->name('content.index');
+
+
+
         });
     });
