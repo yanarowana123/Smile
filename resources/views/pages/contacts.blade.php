@@ -33,7 +33,7 @@
                     </div>
                     <div class="contacts__item">
                         <div class="contacts__link">
-                            <img src="{{asset('img/contacts-address.svg')}}" alt="address"/>Адрес:
+                            <img src="{{asset('img/contacts-address.svg')}}" alt="address"/>@lang('main.Address'):
                         </div>
                         @foreach($addresses as $address)
                             <div class="contacts__link">{{$address->content}}</div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="contacts__item">
                         <div class="contacts__link">
-                            <img src="{{asset('img/contacts-phone.svg')}}" alt="phone"/> Телефон:
+                            <img src="{{asset('img/contacts-phone.svg')}}" alt="phone"/>@lang('main.Phone'):
                         </div>
                         @foreach($phones as $phone)
                             <div class="contacts__link">{{$phone->content}}</div>
@@ -49,8 +49,7 @@
                     </div>
                     <div class="contacts__item">
                         <div class="contacts__link">
-                            <img src="{{asset('img/contacts-calendar.svg')}}" alt="calendar"/> График
-                            работы:
+                            <img src="{{asset('img/contacts-calendar.svg')}}" alt="calendar"/>@lang('main.Work schedule'):
                         </div>
                         @foreach($schedule as $item)
                             <div class="contacts__link">{{$item->content}}</div>
