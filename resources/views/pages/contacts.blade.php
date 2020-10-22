@@ -41,7 +41,7 @@
                     </div>
                     <div class="contacts__item">
                         <div class="contacts__link">
-                            <img src="{{asset('img/contacts-phone.svg')}}" alt="phone"/>@lang('main.Phone'):
+                            <img src="{{asset('img/contacts-phone.svg')}}" alt="phone"/>@lang('main.Phone number'):
                         </div>
                         @foreach($phones as $phone)
                             <div class="contacts__link">{{$phone->content}}</div>
