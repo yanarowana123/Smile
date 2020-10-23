@@ -134,6 +134,7 @@ class FeatureController extends Controller
 
         $validatedData = collect($validatedData);
         if ($request->hasFile('image')) {
+            dd($request->image);
             Storage::delete($feature->image);
             $image = $validatedData->get('image');
             $validatedData->forget('image')
@@ -209,8 +210,6 @@ class FeatureController extends Controller
         $feature->delete();
         return redirect()->route('admin.feature.tech.index')->with(['success' => 'Success']);
     }
-
-
 
 
     public function home()
