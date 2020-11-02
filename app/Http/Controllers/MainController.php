@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Mail\FeedbackMail;
+use App\Models\Contact;
 use App\Models\Email;
 use App\Models\Feature;
 use App\Models\Feedback;
@@ -25,13 +26,17 @@ class MainController extends Controller
         $howItWorks = Feature::where('block', Feature::WORK)->get();
         $innovationFeatures = Feature::where('block', Feature::TECH)->get();
         $features = Feature::where('block', Feature::HOME)->get();
-
+        $firstPhone = Contact::where('type', \App\Models\Contact::MOBILE)->first()->content;
+        $youtube = Contact::where('type', \App\Models\Contact::YOUTUBE)->first()->content;
+        $instagram = Contact::where('type', \App\Models\Contact::INSTAGRAM)->first()->content;
+        $whatsapp = Contact::where('type', \App\Models\Contact::WPP)->first()->content;
 
         $about = Main::where('page', Main::ABOUT)->where('block', Main::HEADER)->first();
         $aboutImg = Photo::where('page', Photo::HOMEABOUT)->first();
         $slides = Photo::where('page', Photo::HOMESLIDER)->get();
         return view('pages.index', compact('header', 'innovation', 'consultant',
-            'howItWorks', 'about', 'aboutImg', 'slides', 'innovationFeatures', 'features'));
+            'howItWorks', 'about', 'aboutImg', 'slides', 'innovationFeatures', 'features', 'firstPhone',
+            'youtube', 'instagram', 'whatsapp'));
     }
 
     public function about()
