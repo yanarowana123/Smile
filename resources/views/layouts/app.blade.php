@@ -6,6 +6,7 @@
     $addresses = $contacts->where('type',\App\Models\Contact::ADDRESS)->all();
     $phones = $contacts->where('type',\App\Models\Contact::MOBILE)->all();
     $schedule =  $contacts->where('type',\App\Models\Contact::SCHEDULE)->all();
+    $firstPhone = $contacts->where('type',\App\Models\Contact::MOBILE)->first()->content;
 
 @endphp
     <!DOCTYPE html>
@@ -47,6 +48,20 @@
                 <a href="{{route('contacts')}}" class="close_navbar scroll-btn2"
                 >@lang('main.Contact us')</a
                 >
+                <a href="tel:{{$firstPhone}}" class="">{{$firstPhone}}</a>
+                <div class="active__social">
+                    <a
+                        href="{{$youtube}}"
+                    ><img src="{{asset('img/youtube.svg')}}" alt="youtube"
+                        /></a>
+                    <a
+                        href="{{$instagram}}"
+                    ><img src="{{asset('img/instagram.svg')}}" alt="youtube"
+                        /></a>
+                    <a href="https://api.whatsapp.com/send?phone={{$whatsapp}}"
+                    ><img src="{{asset('img/whatsapp.svg')}}" alt="youtube"
+                        /></a>
+                </div>
             </div>
         </div>
     </div>
