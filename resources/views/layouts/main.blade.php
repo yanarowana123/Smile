@@ -207,20 +207,7 @@
                     <a href="{{route('contacts')}}" class="footer__link scroll-btn"
                     >@lang('main.Contact us')</a
                     >
-                    <a href="tel:+77022412279" class="">+7 (702) 241-22-79</a>
-                    <div class="active__social">
-                        <a
-                            href="https://www.youtube.com/channel/UCNjiQKXqUBNfDDy1i5Jki0A/featured"
-                        ><img src="img/youtube.svg" alt="youtube"
-                            /></a>
-                        <a
-                            href="https://www.instagram.com/stomatologia_smile_astana/?hl=ru"
-                        ><img src="img/instagram.svg" alt="youtube"
-                            /></a>
-                        <a href="https://api.whatsapp.com/send?phone=77022412279"
-                        ><img src="img/whatsapp.svg" alt="youtube"
-                            /></a>
-                    </div>
+
                 </div>
             </div>
             <div class="offset-md-1 col-md-4 col-6">
