@@ -38,6 +38,25 @@
                             href="{{route('contacts')}}"
                         >@lang('main.Contact us')</a
                         >
+
+                        <a href="tel:{{$firstPhone}}" class="header__phone"
+                        >{{$firstPhone}}</a
+                        >
+                        <div class="header__social">
+                            <a
+                                href="{{$youtube}}"
+                            ><img src="{{asset('img/youtube.svg')}}" alt="youtube"
+                                /></a>
+                            <a
+                                href="{{$instagram}}"
+                            ><img src="{{asset('img/instagram.svg')}}" alt="youtube"
+                                /></a>
+                            <a href="https://api.whatsapp.com/send?phone={{$whatsapp}}"
+                            ><img src="{{asset('img/whatsapp.svg')}}" alt="youtube"
+                                /></a>
+                        </div>
+
+
                         <div class="header__navbar__lang">
                             <div class="header__navbar__lang__content">
                                             <span>@if(app()->getLocale()=='en')
@@ -58,7 +77,13 @@
                 </div>
             </div>
         </header>
-
+        <div class="whatsapp" id="fixed">
+            <a
+                class="whatsapp__wrap"
+                href="https://api.whatsapp.com/send?phone=77022412279"
+            ><img src="{{asset('img/whatsappicon.svg')}}" alt="whatsapp=icon"
+                /></a>
+        </div>
         <div class="container">
             <div class="main__inner">
                 <div class="main__inner__dropdown">

@@ -6,6 +6,7 @@
     $addresses = $contacts->where('type',\App\Models\Contact::ADDRESS)->all();
     $phones = $contacts->where('type',\App\Models\Contact::MOBILE)->all();
     $schedule =  $contacts->where('type',\App\Models\Contact::SCHEDULE)->all();
+    $firstPhone = $contacts->where('type',\App\Models\Contact::MOBILE)->first()->content;
 
 @endphp
     <!DOCTYPE html>
@@ -49,6 +50,20 @@
                 <a href="{{route('contacts')}}" class="close_navbar scroll-btn2"
                 >@lang('main.Contact us')</a
                 >
+                <a href="tel:{{$firstPhone}}" class="">{{$firstPhone}}</a>
+                <div class="active__social">
+                    <a
+                        href="{{$youtube}}"
+                    ><img src="{{asset('img/youtube.svg')}}" alt="youtube"
+                        /></a>
+                    <a
+                        href="{{$instagram}}"
+                    ><img src="{{asset('img/instagram.svg')}}" alt="youtube"
+                        /></a>
+                    <a href="https://api.whatsapp.com/send?phone={{$whatsapp}}"
+                    ><img src="{{asset('img/whatsapp.svg')}}" alt="youtube"
+                        /></a>
+                </div>
             </div>
         </div>
     </div>
@@ -106,6 +121,23 @@
                         href="{{route('contacts')}}"
                     >@lang('main.Contact us')</a
                     >
+
+                    <a href="tel:{{$firstPhone}}" class="header__phone"
+                    >{{$firstPhone}}</a
+                    >
+                    <div class="header__social">
+                        <a
+                            href="{{$youtube}}"
+                        ><img src="{{asset('img/youtube.svg')}}" alt="youtube"
+                            /></a>
+                        <a
+                            href="{{$instagram}}"
+                        ><img src="{{asset('img/instagram.svg')}}" alt="youtube"
+                            /></a>
+                        <a href="https://api.whatsapp.com/send?phone={{$whatsapp}}"
+                        ><img src="{{asset('img/whatsapp.svg')}}" alt="youtube"
+                            /></a>
+                    </div>
                     <div class="header__navbar__lang">
                         <div class="header__navbar__lang__content">
                             <span>@if(app()->getLocale()=='en')
@@ -126,6 +158,13 @@
             </div>
         </div>
     </header>
+    <div class="whatsapp" id="fixed">
+        <a
+            class="whatsapp__wrap"
+            href="https://api.whatsapp.com/send?phone={{$whatsapp}}"
+        ><img src="{{asset('img/whatsappicon.svg    ')}}" alt="whatsapp=icon"
+            /></a>
+    </div>
 </section>
 
 
@@ -168,6 +207,7 @@
                     <a href="{{route('contacts')}}" class="footer__link scroll-btn"
                     >@lang('main.Contact us')</a
                     >
+
                 </div>
             </div>
             <div class="offset-md-1 col-md-4 col-6">
